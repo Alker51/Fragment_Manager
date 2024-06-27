@@ -15,4 +15,9 @@ class UserController extends AbstractController
             'controller_name' => 'UserController',
         ]);
     }
+
+    public function create(): Response
+    {
+
+    }
 }
