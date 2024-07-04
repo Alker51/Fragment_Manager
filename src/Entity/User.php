@@ -199,12 +199,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function isTempPass(): ?bool
+    public function getIsTempPass(): ?bool
     {
         return $this->isTempPass;
     }
 
-    public function setTempPass(bool $isTempPass): static
+    public function setIsTempPass(bool $isTempPass): static
     {
         $this->isTempPass = $isTempPass;
 

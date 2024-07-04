@@ -1,4 +1,94 @@
 {{ form_start(form) }}
-    {{ form_widget(form) }}
-<button class="btn btn-lg btn-primary">{{ button_label|default('Créer mon compte') }}</button>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.username) }}
+        {{ form_widget(form.username) }}
+
+        <small>{{ form_help(form.username) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.username) }}
+        </div>
+    </div>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.password) }}
+        {{ form_widget(form.password) }}
+
+        <small>{{ form_help(form.password) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.password) }}
+        </div>
+    </div>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.password_Checker) }}
+        {{ form_widget(form.password_Checker) }}
+
+        <small>{{ form_help(form.password_Checker) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.password_Checker) }}
+        </div>
+    </div>
+    {{ form_row(form.password_switch) }}
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.firstName) }}
+        {{ form_widget(form.firstName) }}
+
+        <small>{{ form_help(form.firstName) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.firstName) }}
+        </div>
+    </div>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.lastName) }}
+        {{ form_widget(form.lastName) }}
+
+        <small>{{ form_help(form.lastName) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.lastName) }}
+        </div>
+    </div>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.adress) }}
+        {{ form_widget(form.adress) }}
+
+        <small>{{ form_help(form.adress) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.adress) }}
+        </div>
+    </div>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.zipCode) }}
+        {{ form_widget(form.zipCode) }}
+
+        <small>{{ form_help(form.zipCode) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.zipCode) }}
+        </div>
+    </div>
+<div class="form-control">
+    <i class="fa fa-calendar"></i> {{ form_label(form.city) }}
+    {{ form_widget(form.city) }}
+
+    <small>{{ form_help(form.city) }}</small>
+
+    <div class="form-error">
+        {{ form_errors(form.city) }}
+    </div>
+</div>
+    <div class="form-control">
+        <i class="fa fa-calendar"></i> {{ form_label(form.phone) }}
+        {{ form_widget(form.phone) }}
+
+        <small>{{ form_help(form.phone) }}</small>
+
+        <div class="form-error">
+            {{ form_errors(form.phone) }}
+        </div>
+    </div>
+<button class="btn btn-lg btn-success">{{ button_label|default('Créer mon compte') }}</button>
 {{ form_end(form) }}

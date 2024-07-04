@@ -1,3 +1,12 @@
+:root {
+    --main-bg-color: white;
+}
+
 body {
     background-color: skyblue;
+}
+
+.btn .link-btn {
+    color: var(--main-bg-color);
+    text-decoration: none;
 }
