@@ -1,5 +1,7 @@
 :root {
     --main-bg-color: white;
+    --green-btn: green;
+    --red-btn: #930000;
 }
 
 body {
@@ -9,4 +11,12 @@ body {
 .link-btn button {
     color: var(--main-bg-color);
     text-decoration: none;
+}
+
+#connect-nav {
+    color: var(--green-btn);
+}
+
+#disconnect-nav {
+    color: var(--red-btn);
 }

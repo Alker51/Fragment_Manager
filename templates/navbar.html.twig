@@ -1,30 +1,38 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="{{ path('app_home') }}">Fragment</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav nav-underline">
-                <li class="nav-item">
-                    <a class="nav-link" aria-current="page" href="{{ path('app_user_index') }}">Compte</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
+<section id="navigation">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ path('app_home') }}">Fragment</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="nav nav-underline">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                </ul>
+            </div>
+
+            <ul class="nav nav-underline justify-content-end">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ path('app_security_login') }}">{{ app.user.username }}</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" id="connect-nav"  href="{{ path('app_security_login') }}">Connexion</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="disconnect-nav" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
-
-        <ul class="nav nav-underline justify-content-end">
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ path('app_security_login') }}">Connexion</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+    </nav>
+</section>
