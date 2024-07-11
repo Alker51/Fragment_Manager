@@ -6,7 +6,7 @@ body {
     background-color: skyblue;
 }
 
-.btn .link-btn {
+.link-btn button {
     color: var(--main-bg-color);
     text-decoration: none;
 }
