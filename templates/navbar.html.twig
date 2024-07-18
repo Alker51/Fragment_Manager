@@ -22,14 +22,14 @@
                         <a class="nav-link" aria-current="page" href="{{ path('app_security_login') }}">{{ app.user.username }}</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
+                        <a class="nav-link" id="disconnect-nav" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" id="connect-nav"  href="{{ path('app_security_login') }}">Connexion</a>
+                        <a class="nav-link" id="connect-nav" aria-current="page"   href="{{ path('app_security_login') }}">Connexion</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="disconnect-nav" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
+                        <a class="nav-link"  aria-current="page" href="{{ path('app_security_logout') }}">Inscription</a>
                     </li>
                 {% endif %}
             </ul>
