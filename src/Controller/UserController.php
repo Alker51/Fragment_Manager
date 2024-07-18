@@ -8,17 +8,23 @@ use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\PasswordHasher\Hasher\UserPasswordHasher;
 use Symfony\Component\Routing\Attribute\Route;
 #[Route('/account', name: 'app_user')]
 class UserController extends AbstractController
 {
     #[Route('/', name: '_index', methods: ['GET'])]
-    public function index(): Response
+    public function index(UserRepository $userRepository): Response
     {
+        $user = $this->getUser();
+        $id = $user->getUserIdentifier();
+
+        $user = $userRepository->findOneByUserIdentifier($id);
+
         return $this->render('user/index.html.twig', [
-            'controller_name' => 'UserController',
+            'controller_name' => $id,
+            'user' => $user,
         ]);
+
     }
 
     #[Route('/new', name: '_new', methods: ['GET', 'POST'])]
