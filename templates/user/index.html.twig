@@ -9,7 +9,19 @@
 </style>
 
 <div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    <h1>{{ user.firstName }} "{{ user.username  }}" {{ user.lastName }}</h1>
+
+    {% if user.isTempPass %}
+        <div class="mb-3 alert alert-danger" role="alert">
+            Votre mot de passe est un mot de passe temporaire.
+            <br>
+            <a href="{{ path('app_security_logout') }}" class="alert-link">Merci de le modifier en cliquant ICI.</a>
+        </div>
+    {% else %}
+        <div class="mb-3 alert alert-success" role="alert">
+            Bienvenue {{ user.username }} ✅
+        </div>
+    {% endif %}
 
     This friendly message is coming from:
     <ul>

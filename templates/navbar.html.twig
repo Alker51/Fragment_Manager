@@ -5,7 +5,7 @@
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="collapse navbar-collapse " id="navbarSupportedContent">
                 <ul class="nav nav-underline">
                     <li class="nav-item">
                         <a class="nav-link" href="#">Link</a>
@@ -15,24 +15,25 @@
                     </li>
                 </ul>
             </div>
-
-            <ul class="nav nav-underline justify-content-end">
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{{ path('app_security_login') }}">{{ app.user.username }}</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="disconnect-nav" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
-                    </li>
-                {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link" id="connect-nav" aria-current="page"   href="{{ path('app_security_login') }}">Connexion</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link"  aria-current="page" href="{{ path('app_security_logout') }}">Inscription</a>
-                    </li>
-                {% endif %}
-            </ul>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                <ul class="nav nav-underline">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" href="{{ path('app_user_index') }}">{{ app.user.username }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="disconnect-nav" aria-current="page" href="{{ path('app_security_logout') }}">Déconnexion</a>
+                        </li>
+                    {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" id="connect-nav" aria-current="page"   href="{{ path('app_security_login') }}">Connexion</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link"  aria-current="page" href="{{ path('app_security_logout') }}">Inscription</a>
+                        </li>
+                    {% endif %}
+                </ul>
+            </div>
         </div>
     </nav>
 </section>

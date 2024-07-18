@@ -25,10 +25,24 @@ body {
     margin: 1% 25% 0% 25%;
 }
 
-#form-connexion {
+#form-connexion, #alert {
     text-align: center;
 }
 
 #create-button, .btn-connect{
     margin-top: 1%;
+}
+
+@media (max-width: 992px) { /* Vous pouvez ajuster cette taille selon vos besoins */
+    .nav-underline {
+        flex-direction: column !important;
+        width: 100%;
+        text-align: center;
+    }
+    .nav-underline .nav-item {
+        width: 100%;
+    }
+    .nav-underline {
+        --bs-nav-underline-gap : 0;
+    }
 }
