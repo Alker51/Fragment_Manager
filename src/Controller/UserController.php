@@ -16,15 +16,19 @@ class UserController extends AbstractController
     public function index(UserRepository $userRepository): Response
     {
         $user = $this->getUser();
-        $id = $user->getUserIdentifier();
 
-        $user = $userRepository->findOneByUserIdentifier($id);
+        if(!is_null($user)) {
+            $id = $user->getUserIdentifier();
 
-        return $this->render('user/index.html.twig', [
-            'controller_name' => $id,
-            'user' => $user,
-        ]);
+            $user = $userRepository->findOneByUserIdentifier($id);
 
+            return $this->render('user/index.html.twig', [
+                'controller_name' => $id,
+                'user' => $user,
+            ]);
+        }
+
+        return $this->redirectToRoute('app_security_login', [], Response::HTTP_PERMANENTLY_REDIRECT);
     }
 
     #[Route('/new', name: '_new', methods: ['GET', 'POST'])]
