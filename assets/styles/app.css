@@ -20,3 +20,15 @@ body {
 #disconnect-nav {
     color: var(--red-btn);
 }
+
+.connect-div {
+    margin: 1% 25% 0% 25%;
+}
+
+#form-connexion {
+    text-align: center;
+}
+
+#create-button, .btn-connect{
+    margin-top: 1%;
+}
