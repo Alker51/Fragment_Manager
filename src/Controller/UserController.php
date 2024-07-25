@@ -54,4 +54,32 @@ class UserController extends AbstractController
             'form' => $form
         ]);
     }
+
+    #[Route('/edit', name: '_edit', methods: ['GET', 'POST'])]
+    public function edit(Request $request, UserRepository $userRepository): Response
+    {
+        $user = $this->getUser();
+
+        if(!is_null($user)) {
+            $id = $user->getUserIdentifier();
+
+            $user = $userRepository->findOneByUserIdentifier($id);
+
+            $form = $this->createForm(UserType::class, $user);
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $userRepository->save($user, true);
+
+                return $this->redirectToRoute('app_user_index', [], Response::HTTP_SEE_OTHER);
+            }
+
+            return $this->render('user/new.html.twig', [
+                'user' => $user,
+                'form' => $form
+            ]);
+        }
+
+        return
+    }
 }

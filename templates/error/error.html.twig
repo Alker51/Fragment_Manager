@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Erreur {{ code }} : {{  message }}{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Erreur {{ code }} : {{  message }}</h1>
+        {% if image is not empty %}
+            <img src="{{ image }}" alt="erreur {{ code }}">
+        <a href="{{ path('app_home') }}"><button class="btn btn-lg btn-primary">Retourner à l'accueil.</button></a>
+    </div>
+{% endblock %}
