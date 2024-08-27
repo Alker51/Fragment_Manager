@@ -79,5 +79,7 @@ class UserController extends AbstractController
                 'form' => $form
             ]);
         }
+
+        return $this->redirectToRoute('app_home');
     }
 }
